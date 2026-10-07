@@ -1,0 +1,104 @@
+{
+  "name": "ColdStart",
+  "slug": "coldstart",
+  "source_url": "https://coldstartb2b.com",
+  "captured_at": "2026-04-26",
+  "captured_via": "brand-book skill v1 (Playwright headless chromium)",
+  "tokens": {
+    "--brand-bg": "#050508",
+    "--brand-bg-elevated": "#091626",
+    "--brand-text": "#e8e8ec",
+    "--brand-text-muted": "rgba(232, 232, 236, 0.55)",
+    "--brand-text-dim": "rgba(232, 232, 236, 0.30)",
+    "--brand-signal": "#8b9cf7",
+    "--brand-signal-warm": "#c4a0f7",
+    "--brand-accent-primary": "#ff8b48",
+    "--brand-accent-secondary": "#ffc800",
+    "--brand-border": "rgba(255, 255, 255, 0.08)",
+    "--brand-border-accent": "#ff8b48",
+    "--brand-display-font": "\"Cabinet Grotesk\", Arial, sans-serif",
+    "--brand-body-font": "Inter, -apple-system, system-ui, sans-serif",
+    "--brand-display-weight": "700",
+    "--brand-display-tracking": "-0.025em",
+    "--brand-display-line-height": "1.15",
+    "--brand-eyebrow-weight": "500",
+    "--brand-eyebrow-tracking": "0.25em",
+    "--brand-eyebrow-transform": "uppercase",
+    "--brand-cta-bg": "#8b9cf7",
+    "--brand-cta-text": "#050508"
+  },
+  "fonts": {
+    "display": {
+      "family": "Cabinet Grotesk",
+      "fallback": [
+        "Arial",
+        "sans-serif"
+      ],
+      "weights_observed": [
+        700
+      ],
+      "source": "Fontshare (https://www.fontshare.com/fonts/cabinet-grotesk)",
+      "self_host_required": true,
+      "license": "Free for commercial use (Fontshare)"
+    },
+    "body": {
+      "family": "Inter",
+      "fallback": [
+        "-apple-system",
+        "system-ui",
+        "sans-serif"
+      ],
+      "weights_observed": [
+        300,
+        500,
+        600
+      ],
+      "source": "Google Fonts",
+      "self_host_required": false
+    },
+    "declared_unused": [
+      "Unbounded"
+    ]
+  },
+  "voice": {
+    "tone": "confident, terse, declarative",
+    "patterns": [
+      "Affirmation framing: 'Yes. X can do that.'",
+      "Direct second-person address: 'Your team is doing X manually...'",
+      "Quantified claims: '100x Faster' as standalone headline",
+      "Pointed urgency without alarmism",
+      "Punctuation as rhythm — full stops mid-line for spoken-cadence feel"
+    ],
+    "anti_patterns": [
+      "Corporate softening: 'we believe', 'we think', 'we can help you explore'",
+      "Buzzword stacking: 'leverage cutting-edge AI to synergize'",
+      "Question hooks: 'Are you tired of...?'",
+      "Hedged claims: 'up to X in some cases'",
+      "Apologizing for AI: 'we know AI feels overwhelming...'"
+    ],
+    "audience": "B2B sales / marketing / RevOps teams. Decision-makers (founders, VPs, ops leads) who already suspect AI applies to their workflows but haven't shipped it. Outcomes-focused, not implementation-focused.",
+    "positioning": "ColdStart is the bridge between B2B teams and AI capability — specifically Claude implementation."
+  },
+  "ops": {
+    "elevenlabs_voice_id": "<ELEVENLABS_VOICE_ID>",
+    "heygen_avatar_id": "<HEYGEN_TALKING_PHOTO_ID>",
+    "heygen_avatar_id_note": "HeyGen talking_photo Look ID (Avatar V motion engine via use_avatar_v_model:true; falls back to Avatar IV if the Look is not V-enrolled). Set per account.",
+    "pronunciation_dict": {
+      "ColdStart": "Cold Start",
+      "B2B": "B-to-B",
+      "RevOps": "Rev Ops",
+      "AI": "A-I"
+    },
+    "pronunciation_dict_note": "Seed list — extend as Phase A surfaces mispronunciations. Add: any client names, technical jargon, acronyms.",
+    "captions_strategy": "srt-sidecar"
+  },
+  "inconsistencies_flagged": [
+    "Site declares --font-display: 'Unbounded' but it's never used — all display text renders in Cabinet Grotesk. Either drop or commit.",
+    "Two contradictory body-font variables (--font-body: Inter vs --_typography---fonts--body: Cabinet Grotesk); actual usage is Inter.",
+    "Brand 'primary' color #ff8b48 (orange) doesn't appear in the captured viewport — periwinkle #8b9cf7 carries the visual emphasis. Confirm orange usage below the fold before promoting it.",
+    "Relume-default tokens (--text-color--text-primary, --background-color--background-primary) left from template, inverted from actual dark-theme usage.",
+    "Two near-duplicate accents: #8b9cf7 and #c4a0f7 — assign distinct roles or merge.",
+    "Eyebrow at 10.4px / 55% opacity is below WCAG-readable size and contrast.",
+    "Lead body at 300 weight / 55% opacity is the riskiest legibility combo on the page."
+  ]
+}

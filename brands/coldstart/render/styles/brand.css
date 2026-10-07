@@ -1,0 +1,50 @@
+/* ============================================
+   BRAND TOKENS — injected per-brand from brand.json
+   ============================================
+   This file is the integration contract between brand-book
+   output (brands/<slug>/brand.json) and the HyperFrames template.
+   The orchestrator overwrites this file's `:root` block with the
+   active brand's tokens before each render.
+
+   Currently injected: ColdStart (coldstartb2b.com)
+   Source: brands/coldstart/brand.json
+   Captured: 2026-04-26
+   ============================================ */
+
+:root {
+  /* Surface */
+  --brand-bg: #050508;
+  --brand-bg-elevated: #091626;
+
+  /* Text */
+  --brand-text: #e8e8ec;
+  --brand-text-muted: rgba(232, 232, 236, 0.55);
+  --brand-text-dim: rgba(232, 232, 236, 0.30);
+
+  /* Signal accents */
+  --brand-signal: #8b9cf7;
+  --brand-signal-warm: #c4a0f7;
+
+  /* Brand identifier accents (optional usage) */
+  --brand-accent-primary: #ff8b48;
+  --brand-accent-secondary: #ffc800;
+
+  /* Borders */
+  --brand-border: rgba(255, 255, 255, 0.08);
+
+  /* Typography */
+  --brand-display-font: "Cabinet Grotesk", Arial, sans-serif;
+  --brand-body-font: Inter, -apple-system, system-ui, sans-serif;
+  --brand-display-weight: 700;
+  --brand-display-tracking: -0.025em;
+  --brand-display-line-height: 1.15;
+  --brand-body-weight: 400;
+  --brand-body-lead-weight: 300;
+  --brand-eyebrow-weight: 500;
+  --brand-eyebrow-tracking: 0.25em;
+  --brand-eyebrow-transform: uppercase;
+
+  /* CTA */
+  --brand-cta-bg: #8b9cf7;
+  --brand-cta-text: #050508;
+}

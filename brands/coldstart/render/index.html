@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <link rel="stylesheet" href="styles/brand.css" />
+    <link rel="stylesheet" href="styles/template.css" />
+    <link rel="stylesheet" href="styles/layouts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="23.4"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- ============================================
+           SCENE 1: HOOK (0–4.2s) — LAYOUT 1: Right-Third
+           Audio: "You don't have an AI problem. You have a deployment problem." (0.5–3.7s speech)
+           ============================================ -->
+      <div id="scene-hook" class="scene layout-1" data-layout="1">
+        <div class="scene-content">
+          <div id="hook-eyebrow" class="eyebrow">B2B AI</div>
+          <h1 id="hook-display" class="display">
+            <span class="word" style="display:block">You don't have</span>
+            <span class="word" style="display:block">an <span class="signal">AI</span> problem.</span>
+            <span class="word" style="display:block">You have a</span>
+            <span class="word" style="display:block"><span class="signal">deployment</span> problem.</span>
+          </h1>
+        </div>
+      </div>
+
+      <!-- ============================================
+           SCENE 2: BODY 1 (4.2–9.3s) — LAYOUT 3: Lower-Corner Avatar + Top-Right B-roll
+           Audio: "Every B2B team has read the case studies. Watched the demos. Shipped nothing." (4.3–8.9s)
+           ============================================ -->
+      <div id="scene-body-1" class="scene layout-3" data-layout="3">
+        <div class="scene-content">
+          <div class="slot-text">
+            <div id="body-1-eyebrow" class="eyebrow">THE PATTERN</div>
+            <h2 id="body-1-headline" class="display" style="font-size:80px; max-width:740px;">
+              Read. Watched. <span class="signal">Shipped nothing</span>.
+            </h2>
+            <div id="body-1-body" class="body-lead" style="font-size:32px; max-width:680px;">
+              Case studies. Demos. Pitches.
+            </div>
+          </div>
+          <div id="body-1-broll" class="slot-broll">
+            <img src="assets/broll-1.png" class="broll-image" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================
+           SCENE 3: BODY 2 (9.3–17.9s) — LAYOUT 8: Magazine Spread
+           Audio: "ColdStart closes the gap. We deploy Claude inside your sales, marketing, and ops workflows — with your tools, your data, your voice." (9.4–17.3s)
+           ============================================ -->
+      <div id="scene-body-2" class="scene layout-8" data-layout="8">
+        <div class="scene-content">
+          <div class="slot-text">
+            <div id="body-2-eyebrow" class="eyebrow">INSIDE YOUR STACK</div>
+            <h2 id="body-2-headline" class="display" style="font-size:84px; max-width:980px;">
+              Claude. In your <span class="signal">workflows</span>.
+            </h2>
+            <div id="body-2-body" class="body-lead" style="font-size:32px; max-width:900px;">
+              Sales. Marketing. Ops.<br />Your tools. Your data. Your voice.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================
+           SCENE 4: BODY 3 (17.9–21.0s) — LAYOUT 4: Hero-Right Avatar + Centered-Left Stat
+           Audio: "Not a pilot. Production. In days, not quarters." (18.0–20.6s)
+           ============================================ -->
+      <div id="scene-body-3" class="scene layout-4" data-layout="4">
+        <div class="scene-content">
+          <div id="body-3-eyebrow" class="eyebrow">NOT A PILOT. PRODUCTION.</div>
+          <div id="body-3-stat" class="stat">Days.</div>
+          <div id="body-3-label" class="stat-label">NOT QUARTERS</div>
+        </div>
+      </div>
+
+      <!-- ============================================
+           SCENE 5: END (21.0–23.4s) — LAYOUT 5: Centered Vertical Stack
+           Audio: "Ready to ship? Contact us today." (21.1–23.0s)
+           ============================================ -->
+      <div id="scene-end" class="scene layout-5" data-layout="5">
+        <div class="scene-content">
+          <div class="slot-top">
+            <div id="end-wordmark" class="wordmark">ColdStart</div>
+            <div id="end-url" class="eyebrow" style="letter-spacing:0.15em;">coldstartb2b.com</div>
+          </div>
+          <div class="slot-avatar-spacer"></div>
+          <div class="slot-bottom">
+            <div id="end-eyebrow" class="eyebrow">READY?</div>
+            <div id="end-cta" class="cta">Contact us today.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================
+           AVATAR LAYER — persistent across scenes.
+           VP9/WebM with alpha channel (transparent BG).
+           Position tweened by GSAP per scene's layout-N (see LAYOUT_AVATAR_SLOTS).
+           ============================================ -->
+      <div class="avatar-layer">
+        <video
+          id="avatar"
+          src="assets/avatar.webm"
+          muted
+          playsinline
+          class="clip"
+          data-start="0"
+          data-duration="23.4"
+          data-track-index="1"
+        ></video>
+      </div>
+    </div>
+
+    <!-- ============================================
+         AUDIO TRACK — 11Labs voice (multilingual_v2, 92% volume)
+         Voice ID: $ELEVENLABS_VOICE_ID (see .env.example)
+         ============================================ -->
+    <audio
+      id="voice"
+      src="assets/voice.mp3"
+      class="clip"
+      data-start="0"
+      data-duration="23.4"
+      data-track-index="2"
+    ></audio>
+
+    <!-- ============================================
+         MUSIC UNDERBED — ElevenLabs Music (music_v1)
+         22s clip; ends before composition wrap (acceptable for CTA tail).
+         ============================================ -->
+    <audio
+      id="music"
+      src="assets/music.mp3"
+      class="clip"
+      data-start="0"
+      data-duration="22"
+      data-track-index="3"
+    ></audio>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      /* ============================================
+         AVATAR SLOTS PER LAYOUT
+         ============================================ */
+      const LAYOUT_AVATAR_SLOTS = {
+        1: { top: 180, left: 1300, width: 540, height: 720,  objPos: '50% 50%' },
+        2: { top: 180, left: 80,   width: 540, height: 720,  objPos: '50% 50%' },
+        3: { top: 660, left: 80,   width: 600, height: 400,  objPos: '50% 30%' },
+        4: { top: 80,  left: 1240, width: 600, height: 920,  objPos: '50% 50%' },
+        5: { top: 240, left: 720,  width: 480, height: 600,  objPos: '50% 50%' },
+        6: { top: 320, left: 760,  width: 400, height: 480,  objPos: '50% 50%' },
+        7: { top: 80,  left: 80,   width: 480, height: 640,  objPos: '50% 50%' },
+        8: { top: 80,  left: 80,   width: 760, height: 920,  objPos: '50% 50%' },
+        9: { top: 760, left: 80,   width: 1760, height: 280, objPos: '50% 36%' },
+        10: { top: 0,  left: 0,    width: 1920, height: 1080, objPos: '50% 50%' },
+      };
+
+      function avatarTo(layoutId, time, duration = 0.4) {
+        const s = LAYOUT_AVATAR_SLOTS[layoutId];
+        tl.to(
+          ".avatar-layer",
+          { top: s.top, left: s.left, width: s.width, height: s.height,
+            duration, ease: "power2.inOut" },
+          time,
+        );
+        tl.set("#avatar", { objectPosition: s.objPos }, time);
+      }
+
+      gsap.set("#avatar", { objectPosition: LAYOUT_AVATAR_SLOTS[1].objPos });
+
+      /* ===================== SCENE 1: HOOK (Layout 1) ===================== */
+      tl.from(
+        ".avatar-layer",
+        { x: 600, opacity: 0, duration: 0.5, ease: "power3.out" },
+        0,
+      );
+      tl.from("#hook-eyebrow", { y: 30, opacity: 0, duration: 0.4, ease: "power2.out" }, 0.4);
+      tl.from(
+        "#hook-display .word",
+        { y: 60, opacity: 0, duration: 0.5, stagger: 0.35, ease: "power3.out" },
+        0.6,
+      );
+
+      /* ----- Transition Hook → Body-1 @ 4.2s ----- */
+      avatarTo(3, 4.2, 0.5);
+      tl.to("#scene-hook",
+        { opacity: 0, filter: "blur(12px)", duration: 0.4, ease: "power2.inOut" }, 4.2);
+      tl.fromTo("#scene-body-1",
+        { opacity: 0, filter: "blur(12px)" },
+        { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.inOut" }, 4.2);
+
+      /* ===================== SCENE 2: BODY 1 (Layout 3) ===================== */
+      tl.from("#body-1-eyebrow", { y: 30, opacity: 0, duration: 0.4, ease: "power2.out" }, 4.4);
+      tl.from("#body-1-headline",
+        { y: 50, opacity: 0, duration: 0.6, ease: "power3.out" }, 4.6);
+      tl.from("#body-1-body", { y: 30, opacity: 0, duration: 0.4, ease: "power2.out" }, 5.0);
+      tl.from("#body-1-broll",
+        { scale: 0.92, opacity: 0, duration: 0.7, ease: "power2.out" }, 4.8);
+
+      /* ----- Transition Body-1 → Body-2 @ 9.3s ----- */
+      avatarTo(8, 9.3, 0.5);
+      tl.to("#scene-body-1",
+        { opacity: 0, filter: "blur(12px)", duration: 0.4, ease: "power2.inOut" }, 9.3);
+      tl.fromTo("#scene-body-2",
+        { opacity: 0, filter: "blur(12px)" },
+        { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.inOut" }, 9.3);
+
+      /* ===================== SCENE 3: BODY 2 (Layout 8 — magazine) ===================== */
+      tl.from("#body-2-eyebrow", { y: 30, opacity: 0, duration: 0.4, ease: "power2.out" }, 9.5);
+      tl.from("#body-2-headline",
+        { y: 50, opacity: 0, duration: 0.6, ease: "power3.out" }, 9.7);
+      tl.from("#body-2-body", { y: 30, opacity: 0, duration: 0.4, ease: "power2.out" }, 10.1);
+
+      /* ----- Transition Body-2 → Body-3 @ 17.9s ----- */
+      avatarTo(4, 17.9, 0.5);
+      tl.to("#scene-body-2",
+        { opacity: 0, filter: "blur(12px)", duration: 0.4, ease: "power2.inOut" }, 17.9);
+      tl.fromTo("#scene-body-3",
+        { opacity: 0, filter: "blur(12px)" },
+        { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.inOut" }, 17.9);
+
+      /* ===================== SCENE 4: BODY 3 (Layout 4 — stat) ===================== */
+      tl.from("#body-3-eyebrow", { y: 30, opacity: 0, duration: 0.4, ease: "power2.out" }, 18.1);
+      tl.from("#body-3-stat",
+        { scale: 0.7, opacity: 0, duration: 0.6, ease: "back.out(1.4)" }, 18.3);
+      tl.from("#body-3-label", { y: 30, opacity: 0, duration: 0.4, ease: "power2.out" }, 18.7);
+
+      /* ----- Transition Body-3 → End @ 21.0s ----- */
+      avatarTo(5, 21.0, 0.5);
+      tl.to("#scene-body-3",
+        { opacity: 0, filter: "blur(12px)", duration: 0.4, ease: "power2.inOut" }, 21.0);
+      tl.fromTo("#scene-end",
+        { opacity: 0, filter: "blur(12px)" },
+        { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.inOut" }, 21.0);
+
+      /* ===================== SCENE 5: END (Layout 5) ===================== */
+      tl.from("#end-eyebrow", { y: 20, opacity: 0, duration: 0.3, ease: "power2.out" }, 21.2);
+      tl.from("#end-cta",
+        { scale: 0.85, opacity: 0, duration: 0.5, ease: "back.out(1.6)" }, 21.4);
+      tl.from("#end-wordmark", { y: 30, opacity: 0, duration: 0.4, ease: "power2.out" }, 21.6);
+      tl.from("#end-url", { y: 20, opacity: 0, duration: 0.4, ease: "power2.out" }, 21.8);
+
+      /* ===================== Final fade-out (after speech ends ~23.0s) ===================== */
+      tl.to(".avatar-layer", { opacity: 0, duration: 0.4, ease: "power2.in" }, 23.0);
+      tl.to("#end-eyebrow", { opacity: 0, duration: 0.4, ease: "power2.in" }, 23.0);
+      tl.to("#end-cta", { opacity: 0, duration: 0.4, ease: "power2.in" }, 23.05);
+      tl.to("#end-wordmark", { opacity: 0, duration: 0.4, ease: "power2.in" }, 23.1);
+      tl.to("#end-url", { opacity: 0, duration: 0.4, ease: "power2.in" }, 23.1);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

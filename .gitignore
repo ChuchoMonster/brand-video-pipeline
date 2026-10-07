@@ -1,0 +1,26 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+
+# Video working dirs / outputs
+**/renders/
+**/edit/
+**/snapshots/
+**/downloads/
+.thumbnails/
+
+# Node
+node_modules/
+
+# Large / raw media (small demo assets are force-added)
+*.mov
+*.wav
+*.m4a
+*.webm
+**/assets/avatar*
+**/assets/*_raw.*
+*.bak

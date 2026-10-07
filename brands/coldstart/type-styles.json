@@ -1,0 +1,101 @@
+[
+  {
+    "tag": "h1",
+    "text": "Yes.\nClaude Can Do That.",
+    "fontFamily": "\"Cabinet Grotesk\", sans-serif",
+    "fontSize": "67.2px",
+    "fontWeight": "700",
+    "lineHeight": "77.28px",
+    "letterSpacing": "-1.68px",
+    "color": "rgb(232, 232, 236)",
+    "textTransform": "none"
+  },
+  {
+    "tag": "h2",
+    "text": "100x Faster",
+    "fontFamily": "\"Cabinet Grotesk\", sans-serif",
+    "fontSize": "44.8px",
+    "fontWeight": "700",
+    "lineHeight": "50.176px",
+    "letterSpacing": "-1.344px",
+    "color": "rgb(232, 232, 236)",
+    "textTransform": "none"
+  },
+  {
+    "tag": "p",
+    "text": "AI AUTOMATION FOR B2B",
+    "fontFamily": "Inter, sans-serif",
+    "fontSize": "10.4px",
+    "fontWeight": "500",
+    "lineHeight": "15.6px",
+    "letterSpacing": "2.6px",
+    "color": "rgba(232, 232, 236, 0.55)",
+    "textTransform": "uppercase"
+  },
+  {
+    "tag": "p",
+    "text": "Your team is doing manually what AI can do in seconds.",
+    "fontFamily": "Inter, sans-serif",
+    "fontSize": "20px",
+    "fontWeight": "300",
+    "lineHeight": "35px",
+    "letterSpacing": "0.16px",
+    "color": "rgba(232, 232, 236, 0.55)",
+    "textTransform": "none"
+  },
+  {
+    "tag": "a",
+    "text": "ColdStart",
+    "fontFamily": "Inter, sans-serif",
+    "fontSize": "20.8px",
+    "fontWeight": "600",
+    "lineHeight": "31.2px",
+    "letterSpacing": "-0.208px",
+    "color": "rgb(232, 232, 236)",
+    "textTransform": "none"
+  },
+  {
+    "tag": "a",
+    "text": "AI Benefits",
+    "fontFamily": "Inter, sans-serif",
+    "fontSize": "13.6px",
+    "fontWeight": "500",
+    "lineHeight": "20.4px",
+    "letterSpacing": "0.16px",
+    "color": "rgba(232, 232, 236, 0.55)",
+    "textTransform": "none"
+  },
+  {
+    "tag": "a",
+    "text": "Contact",
+    "fontFamily": "Inter, sans-serif",
+    "fontSize": "13.6px",
+    "fontWeight": "600",
+    "lineHeight": "20.4px",
+    "letterSpacing": "0.16px",
+    "color": "rgb(5, 5, 8)",
+    "textTransform": "none"
+  },
+  {
+    "tag": "button",
+    "text": "Resources",
+    "fontFamily": "Inter, sans-serif",
+    "fontSize": "13.6px",
+    "fontWeight": "500",
+    "lineHeight": "20.4px",
+    "letterSpacing": "normal",
+    "color": "rgba(232, 232, 236, 0.55)",
+    "textTransform": "none"
+  },
+  {
+    "tag": "button",
+    "text": "Start a Conversation",
+    "fontFamily": "Inter, sans-serif",
+    "fontSize": "12.8px",
+    "fontWeight": "500",
+    "lineHeight": "19.2px",
+    "letterSpacing": "0.768px",
+    "color": "rgb(5, 5, 8)",
+    "textTransform": "none"
+  }
+]

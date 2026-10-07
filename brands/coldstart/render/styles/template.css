@@ -1,0 +1,215 @@
+/* ============================================
+   TEMPLATE — brand-agnostic layout + motion
+   ============================================
+   This file is the SAME for every brand. All visual styling
+   reads from --brand-* variables in brand.css. Never put a
+   literal hex color or font-family in this file.
+
+   Canvas: 1920×1080 (16:9 horizontal)
+   Duration: 30s (5s hook + 20s body / 3 sub-scenes / + 5s end-card)
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--brand-bg);
+  font-family: var(--brand-body-font);
+  color: var(--brand-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ----- Scene container ----- */
+
+.scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--brand-bg);
+  z-index: 1;
+}
+
+#scene-hook { z-index: 1; }
+#scene-body-1 { z-index: 2; opacity: 0; }
+#scene-body-2 { z-index: 3; opacity: 0; }
+#scene-body-3 { z-index: 4; opacity: 0; }
+#scene-end { z-index: 5; opacity: 0; }
+
+/* ----- Scene content layout -----
+   Default scene-content is a full-fill container.
+   Each layout class (.layout-1..10 in styles/layouts.css) owns the
+   detailed positioning (flex/grid, padding, gap, alignment).
+*/
+
+.scene-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* ----- Typographic primitives (driven by brand tokens) ----- */
+
+.eyebrow {
+  font-family: var(--brand-body-font);
+  font-size: 28px;
+  font-weight: var(--brand-eyebrow-weight);
+  letter-spacing: var(--brand-eyebrow-tracking);
+  text-transform: var(--brand-eyebrow-transform);
+  color: var(--brand-text-muted);
+}
+
+.display {
+  font-family: var(--brand-display-font);
+  font-size: 132px;
+  font-weight: var(--brand-display-weight);
+  letter-spacing: var(--brand-display-tracking);
+  line-height: var(--brand-display-line-height);
+  color: var(--brand-text);
+  max-width: 1100px;
+}
+
+.display-large {
+  font-size: 168px;
+  max-width: 1500px;
+}
+
+.signal {
+  color: var(--brand-signal);
+}
+
+.body-lead {
+  font-family: var(--brand-body-font);
+  font-size: 44px;
+  font-weight: var(--brand-body-lead-weight);
+  line-height: 1.4;
+  color: var(--brand-text-muted);
+  max-width: 1100px;
+}
+
+.body {
+  font-family: var(--brand-body-font);
+  font-size: 36px;
+  font-weight: var(--brand-body-weight);
+  line-height: 1.4;
+  color: var(--brand-text);
+  max-width: 1100px;
+}
+
+/* Big stat — the "100x Faster" pattern */
+.stat {
+  font-family: var(--brand-display-font);
+  font-size: 280px;
+  font-weight: var(--brand-display-weight);
+  letter-spacing: var(--brand-display-tracking);
+  line-height: 1;
+  color: var(--brand-signal);
+}
+
+.stat-label {
+  font-family: var(--brand-body-font);
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: 0.012em;
+  color: var(--brand-text-muted);
+  text-transform: uppercase;
+}
+
+/* CTA pill */
+.cta {
+  display: inline-block;
+  padding: 24px 56px;
+  background: var(--brand-cta-bg);
+  color: var(--brand-cta-text);
+  font-family: var(--brand-body-font);
+  font-size: 32px;
+  font-weight: 600;
+  border-radius: 999px;
+  letter-spacing: 0.012em;
+}
+
+.wordmark {
+  font-family: var(--brand-body-font);
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--brand-text);
+}
+
+/* ----- Avatar layer ----- */
+/* Persistent across all scenes. GSAP tweens its position
+   between the named slots at scene boundaries.
+   Default position = right-third (Slot RT). */
+
+.avatar-layer {
+  position: absolute;
+  z-index: 100;
+  top: 180px;
+  left: 1300px;
+  width: 540px;
+  height: 720px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--brand-bg-elevated);
+  border: 1px solid var(--brand-border);
+}
+
+.avatar-layer video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder shown when no avatar.mp4 is present */
+.avatar-layer::after {
+  content: "AVATAR";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--brand-body-font);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: var(--brand-text-dim);
+  z-index: -1;
+}
+
+/* ----- B-roll / graphic slot ----- */
+
+.broll-slot {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-width: 720px;
+  background: var(--brand-bg-elevated);
+  border: 1px solid var(--brand-border);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.broll-slot::after {
+  content: "B-ROLL / GRAPHIC SLOT";
+  font-family: var(--brand-body-font);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: var(--brand-text-dim);
+}
