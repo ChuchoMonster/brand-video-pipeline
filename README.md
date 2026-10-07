@@ -1,5 +1,7 @@
 # Brand Video Pipeline
 
+![tests](https://github.com/ChuchoMonster/brand-video-pipeline/actions/workflows/tests.yml/badge.svg)
+
 **URL in, branded explainer video out.** Give it a company's website and it produces a finished 16:9 MP4: the company's own colors and fonts, a script in its voice, a narrated AI presenter, generated B-roll and a music underbed, all assembled as an HTML/GSAP composition and rendered to video.
 
 The orchestration lives in a Claude Code skill ([`skill/SKILL.md`](skill/SKILL.md)). An agent running the skill calls each service in turn, post-processes media with FFmpeg, edits the composition, and renders it. It is built and tested on ColdStart (coldstartb2b.com), the author's own consultancy, which is the example brand in this repo.
@@ -94,6 +96,13 @@ npx hyperframes render --output renders/coldstart-v1.mp4
 | `KIE_AI_API_KEY` | B-roll images (Nano Banana 2) |
 
 HyperFrames itself renders locally and needs no key.
+
+## Tests
+
+- Run `node --test tests/*.test.mjs` (Node 20+; nothing to install). No API calls and no rendering.
+- The repo is mostly a skill and a composition, so the suite validates their contracts: skill frontmatter, `brand.json` tokens matching `brand.css`, every `--brand-*` variable defined, and no literal colors or fonts in `template.css`/`layouts.css`.
+- It also checks the composition: each scene layout has CSS and an avatar slot, clips fit the duration, the GSAP timeline is registered as `window.__timelines["main"]`, inline scripts parse and referenced files exist.
+- CI runs the same command on every push and pull request (`.github/workflows/tests.yml`).
 
 ## Credits and scope
 
